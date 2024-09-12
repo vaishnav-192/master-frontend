@@ -47,7 +47,7 @@ const Mappings = () => {
       />
 
 
-      <div className="container mx-auto py-12">
+      <div className="relative z-10 container mx-auto py-12">
         {/* Title */}
         <motion.h1
           className="text-5xl font-bold text-white mb-10 text-center"
