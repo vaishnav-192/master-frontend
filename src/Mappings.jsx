@@ -21,36 +21,43 @@ const Mappings = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/CoolSky.jpg')", overflow: 'hidden', position: 'relative', width: '100%', height: '100%' }} // Background for the entire page
+      className="min-h-screen bg-cover bg-center overflow-hidden relative"
+      style={{ backgroundImage: "url('/CoolSky.jpg')" }}
     >
-
-      {/* CDN Logo in the background */}
-      <motion.img
-        src="/cdn.png"
-        alt="CDN Logo"
-        className="absolute right-0"
-        style={{
-          width: '800px',       // Make it large
-          opacity: 0.1,        // Low opacity for subtle effect
-          zIndex: 1,            // Ensure it is above background but below content
-          top: '15%',
-          transform: 'translate(300px, 100px)'
-        }}
+      {/* Animated gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-blue-900/30 to-pink-900/40"></div>
+      
+      {/* Animated background circles */}
+      <motion.div
+        className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
         animate={{
-          opacity: 1,
-          rotate: 90,        // Rotate 360 degrees
-          x: ['30%', '40%'] // Slide from left to right
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
         }}
-        initial={{ opacity: 0 }}
-        transition={{ duration: 2 }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
       />
 
 
-      <div className="relative z-10 container mx-auto py-12">
+      <div className="relative z-10 container mx-auto py-12 px-4">
         {/* Title */}
         <motion.h1
-          className="text-5xl font-bold text-white mb-10 text-center"
+          className="text-5xl font-bold mb-10 text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text drop-shadow-lg"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -58,7 +65,7 @@ const Mappings = () => {
           File Mappings
         </motion.h1>
 
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+        <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-w-4xl mx-auto border border-white/20">
           {Object.keys(mappings).length === 0 ? (
             <motion.p
               className="text-center text-gray-500"

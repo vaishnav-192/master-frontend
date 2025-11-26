@@ -20,6 +20,12 @@ const Navbar = () => {
             whileHover={{ scale: 1.1, color: '#fbbf24' }}
             whileTap={{ scale: 0.9 }}
           >
+            <Link to="/guide" className="text-white text-lg">Guide</Link>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1, color: '#fbbf24' }}
+            whileTap={{ scale: 0.9 }}
+          >
             <Link to="/servers" className="text-white text-lg">Servers</Link>
           </motion.div>
           <motion.div
